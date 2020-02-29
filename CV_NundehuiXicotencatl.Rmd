@@ -1,0 +1,154 @@
+---
+title: "Nundehui Xicotencatl"
+date: "`r Sys.Date()`"
+link-citations: yes
+output:
+  tufte::tufte_html: default
+  tufte::tufte_book:
+    citation_package: natbib
+    latex_engine: xelatex
+  pdf_document: default
+  tufte::tufte_handout:
+    citation_package: natbib
+    latex_engine: xelatex
+subtitle: Data scientist + Learning and development specialist
+bibliography: skeleton.bib
+---
+
+```{r setup, include=FALSE}
+library(tufte)
+# invalidate cache when the tufte version changes
+knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('tufte'))
+options(htmltools.dir.version = FALSE)
+```
+
+```{marginfigure}
+*Contact details:*
+  
+Address: Mexico City, Zip Code: 11430
+
+email: nunxic@gmail.com
+
+Phone number: (55)58187190
+
+```
+
+
+```{marginfigure}
+*Software and programming languages I handle:*
+  
+Excel (Solver, Pivot tables, formulas)
+
+Python (pandas, matplotlib, numpy, sklearn, keras, plotnine)
+
+R (dplyr, tidyr, rmarkdown, ggplot, caret)
+
+SPSS
+
+SQL Server
+
+Tableau
+```
+
+My main goal with my recent master studies on Data Science, was being data-driven and user oriented when developing products, resources and strategies. Now that I'm graduated, I'm looking for applying data-science methods, tools and techniques to achieve meaningful objectives.
+
+
+## Academic background
+
++ **MSc. in CIS: Data Science, Business and Governance**, Tilburg University 2018-2019
+
+    + Musical performance was evaluated through signal features and principal components under the foundations of Multimodal Learning Analytics.
+    + Major qualifications: Data processing with R and Python, Statistics and methodology, Machine learning, Data mining, Business analytics, Sustainability, privacy and security.
+
+```{r fig-margin, fig.margin = TRUE, fig.cap = "Distribution of time spent on the tasks performed during my thesis project.", fig.width=3.5, fig.height=5.5, cache=TRUE, message=FALSE}
+
+library(ggplot2)
+library(dplyr)
+proportion <- data.frame(Time_distribution = c(20, 20, 15, 15, 30),
+                         Tasks = c("Feature Extraction (automate)", "Feature Engineering", "Data Visualization", "Data Analysis", "Research and writing"),
+                         Project = "Thesis project")
+
+ggplot(proportion, aes(x=Project, y=Time_distribution, fill=Tasks))+
+  geom_col()+
+  geom_text(aes(label=paste0(Time_distribution, "%")),
+            position=position_stack(vjust=0.5))+
+            theme(axis.title = element_blank(), 
+                  axis.text.y = element_blank(), 
+                  axis.ticks.y = element_blank())
+
+
+```
+
++ **Bachelor's degree in Psychology**, Universidad Nacional Autonoma de Mexico 2009-2013
+
+    + Practical and theoretical focus in behavioral analysis, behavioral economics, research, education and data analysis with SPSS, Excel and R. In my thesis, I used k-nn to segment similar responses in a resource allocation task. 
+
+
+
+## My skills in a chart
+What excited me the most about being a psychologist was the flexibility of activities. I decided to take the path of behavioral and cognitive sciences, which helped me to understand different phenomena in an objective manner. These studies gave me the basis to study Data Science, in one hand I acquiered basic programming skills (R), in the other one I learnt statistical concepts and methods and their application. 
+
+
+```{r fig.margin = TRUE, fig.cap = "Which kind of tasks have I performed in my lifespan?", fig.width=3.5, fig.height=7.5, cache=TRUE, message=FALSE}
+
+library(waffle)
+
+lifespan <-  c(Research = 15, Data_cleaning = 15,  Feature_engineering = 12, Databases_merging = 14, Machine_Learning = 12, Designing = 10, Statistical_analysis = 12, Visualization = 10 )
+waffle(lifespan, rows=5, legend = "right", flip=TRUE)
+
+```
+
+## Work experience
+
+**Edivers | Instructional designer (freelance)**
+*August 2018 - to date*
+
++  I develop instructional scripts for courses, videos, animations, and e-learning resources to train soft-skills and using platforms.
+
++  I supported the design of a dashboard and the resulting reports to evaluate the psychosocial risk factors and mental health in workspaces.
+
+**Ford Motor Co. (Mexico) | Training coordinator**
+*October 2016 - July 2018*
+
++  I was responsible for the KPI's management from the Learning and Development department. 
+
+    + In a monthly base, I integrated, cleaned, updated the databases to generate the training progress reports for managers, coordinators and sellers. 
+    + I participated in the meetings to define the features and nature of the data needed to get useful insights related to our development programs. 
++  I planned and designed a communication strategy and its content to model sales skills at the dealerships and empathetic behaviors towards buyers and working teams.
++  I designed online training resources, courses and evaluations regarding knowledge product and sales skills.
+
+```{r fig.margin = TRUE, fig.cap = "Use of software and languajes during my studies and career.", fig.width=5.5, fig.height=7.5, cache=TRUE, message=FALSE}
+
+software <- read.csv("C:/Users/user/Desktop/ytools_cv.csv", fileEncoding = "UTF-8-BOM")
+
+ggplot(software, aes(x=year, y=use))+
+  coord_flip()+
+  geom_area(aes(color=tool, fill=tool),
+            alpha=0.5, position=position_dodge(0.8))
+
+
+```
+
+**Escuela Bancaria y Comercial | Instructional designer**
+*January 2015 - 2016*
+
++ I research and guide meetings with subject matter experts to organize, sequence and create content for graduate, undergraduate and further education courses. 
++ I outlined and designed e-learning resources and activities for BI, management and marketing courses
+
+**Faculty of Psychology, UNAM | Research assistant**
+*August 2013 - December 2014*
+
++ I conducted data analysis of projects regarding resources allocation, scientific skills and social interactions to write academic papers, chapters in books and conferences. 
++ I supported the validation of observational systems to evaluate therapy trainings and therapist's behavior, and materials to diagnose reading and writing skills.
+
+**CUAED, UNAM, Evaluation Department | Intern**
+*April - September 2013*
+
++ Data mining and visualization of graduate profiles and student's performance to generate reports for school managers and decision makers.
++ I research and write a report about the features of distance education options in Mexico. 
+
+
+```{r bib, include=FALSE}
+# create a bib file for the R packages used in this document
+knitr::write_bib(c('base', 'rmarkdown'), file = 'skeleton.bib')
+```
